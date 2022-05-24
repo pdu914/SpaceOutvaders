@@ -1,4 +1,4 @@
-public class Alien{
+class Alien{
   int x;
   int y;
   PImage pic;
