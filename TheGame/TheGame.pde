@@ -1,10 +1,9 @@
 PImage alienPic;
 ArrayList<Alien> aliens;
-void preload(){
-  alienPic=loadImage("alien.png");
-}
+
 void setup(){
-  size(400,400);
+  size(800,800);
+  alienPic=loadImage("alien.png");
   aliens=new ArrayList<Alien>();
   aliens.add(new Alien(0,0,alienPic));
 }
