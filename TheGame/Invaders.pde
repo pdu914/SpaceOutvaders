@@ -28,4 +28,16 @@ class Invaders{
       y+=60;
     }
   }
+  
+  void shiftDown(){
+    for (Alien x:aliens){
+      x.y+=10;
+    }
+  }
+  
+  void draw(){
+    for (Alien x:aliens){
+      x.draw();
+    }
+  }
 }
