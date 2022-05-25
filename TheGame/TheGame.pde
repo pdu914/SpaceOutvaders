@@ -8,5 +8,8 @@ void setup(){
   aliens.add(new Alien(0,0,alienPic));
 }
 void draw(){
-  aliens.get(0).draw();
+  background(0);
+  //aliens.get(0).draw();
+  Invaders monsters=new Invaders(3,alienPic);
+  monsters.draw();
 }

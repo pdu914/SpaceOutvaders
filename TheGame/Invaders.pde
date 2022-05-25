@@ -6,7 +6,7 @@ class Invaders{
   ArrayList<Alien> aliens;
   float speed;
   int laserTime;
-  ArrayList<Laser> lasers;
+  //ArrayList<Laser> lasers;
   
   public Invaders(int rows1,PImage alImage){
     alienPic=alImage;
@@ -16,7 +16,8 @@ class Invaders{
     speed=0.5;
     laserTime=0;
     aliens=new ArrayList<Alien>();
-    lasers=new ArrayList<Laser>();
+    initializeAliens();
+    //lasers=new ArrayList<Laser>();
   }
   
   void initializeAliens(){
