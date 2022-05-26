@@ -11,7 +11,7 @@ class Invaders{
   public Invaders(int rows1,PImage alImage){
     alienPic=alImage;
     rows=rows1;
-    dir=0;
+    dir=-1;
     y=60;
     speed=0.5;
     laserTime=0;
@@ -40,5 +40,19 @@ class Invaders{
     for (Alien x:aliens){
       x.draw();
     }
+  }
+  
+  boolean changeDir(){
+    for (Alien x:aliens){
+      if (x.x >=width-60){
+        dir=-1;
+        return true;
+      }
+      if (x.x<=30){
+        dir=1;
+        return true;
+      }
+    }
+    return false;
   }
 }
