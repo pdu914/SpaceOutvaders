@@ -13,7 +13,7 @@ class Invaders{
     rows=rows1;
     dir=-1;
     y=60;
-    speed=0.2;
+    speed=1;
     laserTime=0;
     aliens=new ArrayList<Alien>();
     initializeAliens();
@@ -30,12 +30,12 @@ class Invaders{
   }
     
   void initializeAliens(){
-    int y=60;
+    int y=44;
     for (int i=0;i<rows;i++){
-      for (int x=30;x<740;x+=60){
+      for (int x=44;x<width-44;x+=45){
         aliens.add(new Alien(x,y,alienPic));
       }
-      y+=60;
+      y+=44;
     }
   }
   
@@ -53,11 +53,11 @@ class Invaders{
   
   boolean changeDir(){
     for (Alien x:aliens){
-      if (x.x >=width-30){
+      if (x.x >=width-44){
         dir=-1;
         return true;
       }
-      if (x.x<=30){
+      if (x.x<=22){
         dir=1;
         return true;
       }
