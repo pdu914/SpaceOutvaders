@@ -20,5 +20,6 @@ void keyPressed(){
 void draw(){
   background(0);
   //aliens.get(0).draw();
+  monsters.updateEverything();
   monsters.draw();
 }
