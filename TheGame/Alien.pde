@@ -8,6 +8,6 @@ class Alien{
     pic=newpic;
   }
   void draw(){
-    image(pic,x,y,pic.width/4,pic.height/4);
+    image(pic,x,y,pic.width/10,pic.height/10);
   }
 }

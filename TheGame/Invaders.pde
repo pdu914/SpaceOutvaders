@@ -23,7 +23,7 @@ class Invaders{
   void initializeAliens(){
     int y=60;
     for (int i=0;i<rows;i++){
-      for (int x=60;x<740;x+=60){
+      for (int x=30;x<740;x+=60){
         aliens.add(new Alien(x,y,alienPic));
       }
       y+=60;
