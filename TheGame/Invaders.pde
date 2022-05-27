@@ -20,6 +20,15 @@ class Invaders{
     //lasers=new ArrayList<Laser>();
   }
   
+  void updateEverything(){
+    for (Alien x:aliens){
+      x.x+= speed*dir;
+    }
+    if (changeDir()){
+      shiftDown();
+    }
+  }
+    
   void initializeAliens(){
     int y=60;
     for (int i=0;i<rows;i++){
