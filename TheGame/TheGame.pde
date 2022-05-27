@@ -10,8 +10,11 @@ void setup(){
   monsters=new Invaders(3,alienPic);
 }
 void keyPressed(){
-  if (key=='d'){
+  if (key=='s'){
     monsters.shiftDown();
+  }
+  if (key=='d'){
+    monsters.updateEverything();
   }
 }
 void draw(){

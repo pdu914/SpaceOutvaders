@@ -13,7 +13,7 @@ class Invaders{
     rows=rows1;
     dir=-1;
     y=60;
-    speed=0.5;
+    speed=0.2;
     laserTime=0;
     aliens=new ArrayList<Alien>();
     initializeAliens();
@@ -53,7 +53,7 @@ class Invaders{
   
   boolean changeDir(){
     for (Alien x:aliens){
-      if (x.x >=width-60){
+      if (x.x >=width-30){
         dir=-1;
         return true;
       }
