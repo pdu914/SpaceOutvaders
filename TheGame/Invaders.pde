@@ -61,6 +61,9 @@ class Invaders{
     for (Alien x:aliens){
       x.draw();
     }
+    for (Laser x:lasers){
+      x.draw();
+    }
   }
   
   boolean changeDir(){
