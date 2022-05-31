@@ -6,7 +6,8 @@ class Invaders{
   ArrayList<Alien> aliens;
   float speed;
   int laserTime;
-  //ArrayList<Laser> lasers;
+  ArrayList<Laser> lasers;
+  ArrayList<Alien> botRow;
   
   public Invaders(int rows1,PImage alImage){
     alienPic=alImage;
@@ -17,7 +18,8 @@ class Invaders{
     laserTime=0;
     aliens=new ArrayList<Alien>();
     initializeAliens();
-    //lasers=new ArrayList<Laser>();
+    botRow=new ArrayList<Alien>();
+    lasers=new ArrayList<Laser>();
   }
   
   void updateEverything(){
@@ -72,4 +74,22 @@ class Invaders{
     }
     return positions;
   }
+  
+  void getBotRow(){
+    ArrayList<Integer> positions=xpos();
+    for (int i=0;i<positions.size();i++){
+      int y=0;
+      Alien botAlien;
+      for (Alien x:aliens){
+        if (x.x==positions.get(i)){
+          if (x.y>y){
+            y=x.y;
+            botAlien=x;
+          }
+        }
+      }
+      botRow.add(botAlien);
+    }
+  }
+  
 }
