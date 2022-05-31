@@ -36,7 +36,9 @@ class Invaders{
       }
     }
     laserTime++;
-    
+    for (Laser x:lasers){
+      x.y+=2;
+    }
   }
     
   void initializeAliens(){
