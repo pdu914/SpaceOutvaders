@@ -6,7 +6,8 @@ class Invaders{
   ArrayList<Alien> aliens;
   float speed;
   int laserTime;
-  //ArrayList<Laser> lasers;
+  ArrayList<Laser> lasers;
+  ArrayList<Alien> botRow;
   
   public Invaders(int rows1,PImage alImage){
     alienPic=alImage;
@@ -17,7 +18,8 @@ class Invaders{
     laserTime=0;
     aliens=new ArrayList<Alien>();
     initializeAliens();
-    //lasers=new ArrayList<Laser>();
+    botRow=new ArrayList<Alien>();
+    lasers=new ArrayList<Laser>();
   }
   
   void updateEverything(){
@@ -26,6 +28,16 @@ class Invaders{
     }
     if (changeDir()){
       shiftDown();
+    }
+    if (laserTime>40){
+      getBotRow();
+      if (botRow.size()>0){
+        shoot();
+      }
+    }
+    laserTime++;
+    for (Laser x:lasers){
+      x.y+=2;
     }
   }
     
@@ -64,4 +76,37 @@ class Invaders{
     }
     return false;
   }
+  
+  ArrayList<Integer> xpos(){
+    ArrayList<Integer> positions=new ArrayList<Integer>();
+    for (Alien x:aliens){
+      positions.add(x.x);
+    }
+    return positions;
+  }
+  
+  void getBotRow(){
+    ArrayList<Integer> positions=xpos();
+    for (int i=0;i<positions.size();i++){
+      int y=0;
+      Alien botAlien=null;
+      for (Alien x:aliens){
+        if (x.x==positions.get(i)){
+          if (x.y>y){
+            y=x.y;
+            botAlien=x;
+          }
+        }
+      }
+      botRow.add(botAlien);
+    }
+  }
+    
+    void shoot(){
+      Alien alienThatShoots=botRow.get((int)(Math.random()*botRow.size()));
+      Laser projectile=new MonsterLaser(alienThatShoots.x+22,alienThatShoots.y+22);
+      lasers.add(projectile);
+      laserTime=0;
+    }
+  
 }
