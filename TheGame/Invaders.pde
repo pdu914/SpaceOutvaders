@@ -64,4 +64,12 @@ class Invaders{
     }
     return false;
   }
+  
+  ArrayList<Integer> xpos(){
+    ArrayList<Integer> positions=new ArrayList<Integer>();
+    for (Alien x:aliens){
+      positions.add(x.x);
+    }
+    return positions;
+  }
 }
