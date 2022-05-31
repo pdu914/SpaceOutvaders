@@ -29,6 +29,14 @@ class Invaders{
     if (changeDir()){
       shiftDown();
     }
+    if (laserTime>40){
+      getBotRow();
+      if (botRow.size()>0){
+        shoot();
+      }
+    }
+    laserTime++;
+    
   }
     
   void initializeAliens(){
@@ -79,7 +87,7 @@ class Invaders{
     ArrayList<Integer> positions=xpos();
     for (int i=0;i<positions.size();i++){
       int y=0;
-      Alien botAlien;
+      Alien botAlien=null;
       for (Alien x:aliens){
         if (x.x==positions.get(i)){
           if (x.y>y){
@@ -91,5 +99,12 @@ class Invaders{
       botRow.add(botAlien);
     }
   }
+    
+    void shoot(){
+      Alien alienThatShoots=botRow.get((int)(Math.random()*botRow.size()));
+      Laser projectile=new MonsterLaser(alienThatShoots.x+22,alienThatShoots.y+22);
+      lasers.add(projectile);
+      laserTime=0;
+    }
   
 }
