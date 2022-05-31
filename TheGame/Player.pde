@@ -16,7 +16,7 @@ class Player{
  }
  
  void updateEverything(){
-   x+=2*dir;
+   x+=3*dir;
    if (x<=0){
      x=0;
    }
