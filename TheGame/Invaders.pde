@@ -22,22 +22,30 @@ class Invaders{
     lasers=new ArrayList<Laser>();
   }
   
-  void updateEverything(){
+  void updateEverything(Player shooter){
     for (Alien x:aliens){
       x.x+= speed*dir;
+    }
+    for (int i=lasers.size()-1;i>=0;i--){
+      lasers.get(i).y+=2;
+      if (dist(lasers.get(i).x,lasers.get(i).y,shooter.x+20,shooter.y+10)<10){
+        shooter.lives--;
+        lasers.remove(lasers.get(i));
+      }
     }
     if (changeDir()){
       shiftDown();
     }
-    if (laserTime>40){
+    if (laserTime>80){
       getBotRow();
       if (botRow.size()>0){
         shoot();
       }
     }
     laserTime++;
-    for (Laser x:lasers){
-      x.y+=2;
+    if (aliens.size()==0){
+      speed+=0.5;
+      initializeAliens();
     }
   }
     
@@ -91,7 +99,8 @@ class Invaders{
   boolean contact(int x,int y){
     for (int i=aliens.size()-1;i>=0;i--){
       Alien curr=aliens.get(i);
-      if (dist(curr.x+22,curr.y+16,x,y)<5){
+      if (dist(curr.x+22,curr.y+16,x,y)<10){
+        aliens.remove(i);
         return true;
       }
     }
