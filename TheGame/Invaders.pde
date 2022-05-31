@@ -88,6 +88,15 @@ class Invaders{
     return positions;
   }
   
+  boolean contact(int x,int y){
+    for (int i=aliens.size()-1;i>=0;i--){
+      Alien curr=aliens.get(i);
+      if (dist(curr.x+22,curr.y+16,x,y)<5){
+        return true;
+      }
+    }
+    return false;
+  }
   void getBotRow(){
     ArrayList<Integer> positions=xpos();
     for (int i=0;i<positions.size();i++){

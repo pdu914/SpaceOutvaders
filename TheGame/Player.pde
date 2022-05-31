@@ -2,23 +2,46 @@ class Player{
  PImage shooterPic;
  int x;
  int y;
- ArrayList<Laser> lasers;
+ ArrayList<PlayerLaser> lasers;
  int lives;
  int dir;
  
  public Player(PImage pic){
    shooterPic=pic;
-   x=width/2;
+   x=width/2-32;
    y=height-60;
-   lasers=new ArrayList<Laser>();
+   lasers=new ArrayList<PlayerLaser>();
    lives=3;
    dir=0;
  }
  
+ void updateEverything(){
+   x+=1*dir;
+   if (x<=0){
+     x=0;
+   }
+   if (x>width-64){
+     x=width-64;
+   }
+   for (int i=lasers.size();i>=0;i--){
+     lasers.get(i).move();
+     if (monsters.contact(lasers.get(i).x,lasers.get(i).y)){
+       lasers.remove(i);
+     }
+     else if (lasers.get(i).y<=0){
+       lasers.remove(i);
+     }
+   }
+ }
  void draw(){
    image(shooterPic,x,y,shooterPic.width/15,shooterPic.height/15);
-   System.out.println(shooterPic.width/15);
-   System.out.println(shooterPic.height/15);
+   fill(255);
+   text("LIVES",20,20);
+   for (int i=0;i<lives;i++){
+     image(shooterPic,60+40*i,20,shooterPic.width/15,shooterPic.height/15);
+   }
+   //System.out.println(shooterPic.width/15);
+   //System.out.println(shooterPic.height/15);
  }
  
  void shoot(){
