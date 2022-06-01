@@ -123,11 +123,11 @@ class Invaders{
     }
   }
     
-    void shoot(){
-      Alien alienThatShoots=botRow.get((int)(Math.random()*botRow.size()));
-      Laser projectile=new MonsterLaser(alienThatShoots.x+22,alienThatShoots.y+22);
-      lasers.add(projectile);
-      laserTime=0;
-    }
+  void shoot(){
+    Alien alienThatShoots=botRow.get((int)(Math.random()*botRow.size()));
+    Laser projectile=new MonsterLaser(alienThatShoots.x+22,alienThatShoots.y+22);
+    lasers.add(projectile);
+    laserTime=0;
+  }
   
 }

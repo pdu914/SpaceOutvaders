@@ -5,6 +5,7 @@ class Player{
  ArrayList<PlayerLaser> lasers;
  int lives;
  int dir;
+ int score;
  
  public Player(PImage pic){
    shooterPic=pic;
@@ -13,6 +14,7 @@ class Player{
    lasers=new ArrayList<PlayerLaser>();
    lives=3;
    dir=0;
+   score=0;
  }
  
  void updateEverything(){
@@ -27,6 +29,7 @@ class Player{
      lasers.get(i).move();
      if (monsters.contact(lasers.get(i).x,lasers.get(i).y)){
        lasers.remove(i);
+       score+=10;
        break;
      }
      else if (lasers.get(i).y<=0){
@@ -45,6 +48,9 @@ class Player{
    for (PlayerLaser x:lasers){
      x.draw();
    }
+   text("Score", 80,20);
+   fill(255);
+   text(score,120,20);
    //System.out.println(shooterPic.width/15);
    //System.out.println(shooterPic.height/15);
  }
