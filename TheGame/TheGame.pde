@@ -4,6 +4,8 @@ Player player;
 PImage shooter;
 PurpleAlien purp;
 PImage purpPic;
+PImage boss1Pic;
+Boss1 b;
 void setup(){
   size(800,800);
   alienPic=loadImage("alien.png");
@@ -12,6 +14,8 @@ void setup(){
   player=new Player(shooter);
   purpPic=loadImage("purpalien.png");
   purp=new PurpleAlien(20,20,purpPic);
+  boss1Pic=loadImage("Boss1.png");
+  b=new Boss1(100,100,boss1Pic);
 }
 void keyPressed(){
   if (keyCode==39){
@@ -35,4 +39,5 @@ void draw(){
   //  setup();
   //}
   purp.draw();
+  b.draw();
 }
