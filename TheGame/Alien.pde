@@ -9,7 +9,7 @@ class Alien{
   }
   void draw(){
     image(pic,x,y,pic.width/15,pic.height/15);
-    System.out.println(pic.width/15);
-    System.out.println(pic.height/15);
+    //System.out.println(pic.width/15);
+    //System.out.println(pic.height/15);
   }
 }
