@@ -4,6 +4,7 @@ class Invaders{
   int dir;
   int y;
   ArrayList<Alien> aliens;
+  ArrayList<PurpleAlien> purps;
   float speed;
   int laserTime;
   ArrayList<Laser> lasers;
@@ -20,6 +21,7 @@ class Invaders{
     initializeAliens();
     botRow=new ArrayList<Alien>();
     lasers=new ArrayList<Laser>();
+    purps=new ArrayList<PurpleAlien>();
   }
   
   void updateEverything(Player shooter){
@@ -56,6 +58,20 @@ class Invaders{
         aliens.add(new Alien(x,y,alienPic));
       }
       y+=44;
+    }
+  }
+  
+  void initializeAliens2(){
+    int y=44;
+    for (int i=0;i<rows;i++){
+      for (int x=44;x<width-44;x+=45){
+        if (Math.random()<0.5){
+          aliens.add(new Alien(x,y,alienPic));
+        }else{
+          purps.add(new PurpleAlien(x,y,purpPic));
+        }
+      }
+      y+=35;
     }
   }
   

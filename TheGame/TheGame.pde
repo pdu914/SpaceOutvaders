@@ -7,6 +7,7 @@ PImage purpPic;
 PImage boss1Pic;
 Level1 lvl1;
 Boss1 b;
+Alien green;
 void setup(){
   size(800,800);
   alienPic=loadImage("alien.png");
@@ -18,6 +19,7 @@ void setup(){
   boss1Pic=loadImage("Boss1.png");
   b=new Boss1(100,100,boss1Pic);
   lvl1=new Level1(monsters,player);
+  green=new Alien(100,100,alienPic);
 }
 void keyPressed(){
   if (keyCode==39){
@@ -32,7 +34,7 @@ void keyPressed(){
 }
 void draw(){
   background(0);
-  //aliens.get(0).draw();
+  
   //monsters.updateEverything(player);
   //monsters.draw();
   //player.updateEverything();
@@ -40,7 +42,8 @@ void draw(){
   //if (player.lives==0){
   //  setup();
   //}
-  //purp.draw();
+  purp.draw();
+  green.draw();
   //b.draw();
-  lvl1.draw();
+  //lvl1.draw();
 }

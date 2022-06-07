@@ -8,6 +8,6 @@ class PurpleAlien{
     pic=pic1;
   }
   void draw(){
-    image(pic,x,y,pic.width/10,pic.height/10);
+    image(pic,x,y,44,32);
   }
 }
